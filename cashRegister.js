@@ -1,22 +1,22 @@
-function StaffMember(name,discountPercent){
+function StaffMember(name, discountPercent){
     this.name = name;
     this.discountPercent = discountPercent;
 }
 
-var sally = new StaffMember("Sally",5);
-var bob = new StaffMember("Bob",10);
+var sally = new StaffMember('Sally', 5);
+var bob = new StaffMember('Bob', 10);
 
 var me = new StaffMember('Pio', 20);
 
 
 var cashRegister = {
-    total:0,
+    total: 0,
     lastTransactionAmount: 0,
     add: function(itemCost){
         this.total += (itemCost || 0);
         this.lastTransactionAmount = itemCost;
     },
-    scan: function(item,quantity){
+    scan: function(item, quantity){
         switch (item){
         case "eggs": this.add(0.98 * quantity); break;
         case "milk": this.add(1.23 * quantity); break;
@@ -34,12 +34,12 @@ var cashRegister = {
     }
 };
 
-cashRegister.scan('eggs',1);
-cashRegister.scan('milk',1);
-cashRegister.scan('magazine',3);
+cashRegister.scan('eggs', 1);
+cashRegister.scan('milk', 1);
+cashRegister.scan('magazine', 3);
 
 cashRegister.applyStaffDiscount(me);
 
 
 // Show the total bill
-console.log('Your bill is '+ cashRegister.total.toFixed(2));
+console.log('Your bill is ' + cashRegister.total.toFixed(2));
