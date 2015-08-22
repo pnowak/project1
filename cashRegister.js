@@ -40,6 +40,23 @@ cashRegister.scan('magazine', 3);
 
 cashRegister.applyStaffDiscount(me);
 
-
 // Show the total bill
 console.log('Your bill is ' + cashRegister.total.toFixed(2));
+
+function getData () {
+    var request = new XMLHttpRequest(),
+        p = getElementById('');
+    request.onreadystatechange = function () {
+        if (request.readyState !== 4) {
+            return false;
+        }
+        if (request.status !== 200) {
+            console.log("Error, status code: " + request.status);
+            return false;
+        }
+        p.innerHTML = request.responseText;
+    };
+    request.open('GET', 'dane.txt');
+    request.send('');
+};
+
