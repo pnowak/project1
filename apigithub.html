@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang=pl>
+<head>
+    <meta charset=utf-8>
+    <title>API Githuba</title>
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <style type='text/css'>
+
+    body { 
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 18px;
+        font-family: 'Press Start 2P', cursive;
+    }
+
+    .wrap {
+        background-color: #000000;
+        color: #ffffff;
+        width: 40%;
+        padding: 10px 0;
+    }
+
+    ul {
+        list-style: none;
+        line-height: 3;
+    }
+
+    </style>
+</head>
+<body>
+
+    <section class="wrap">
+        <ul>
+            <li id="forks">Liczba forków: </li>
+            <li id="stars">Liczba gwiazdek: </li>
+            <li id="followers">Liczba followersów: </li>
+        </ul>
+    </section>
+
+    <script type="text/javascript">
+
+        function getJSON (url) {
+            var request = new XMLHttpRequest(),
+                forks = get('forks'),
+                stars = get('stars'),
+                followers = get('followers'),
+                forksText = forks.textContent,
+                starsText = stars.textContent,
+                followersText = followers.textContent,
+                part1 = forksText.split(':'),
+                part2 = starsText.split(':'),
+                part3 = followersText.split(':'),
+                parse;
+            request.onreadystatechange = function () {
+                if (request.readyState !== 4) {
+                    return false;
+                }
+                if (request.status !== 200) {
+                    console.log("Error, status code: " + request.status);
+                    return false;
+                }
+                parse = JSON.parse(request.responseText);
+                console.log(parse);
+
+                part1[1] = parse.forks;
+                part2[1] = parse.stargazers_count;
+                part3[1] = parse.subscribers_count;
+                forks.textContent = part1[0] + ': ' + part1[1];
+                stars.textContent = part2[0] + ': ' + part2[1];
+                followers.textContent = part3[0] + ': ' + part3[1];
+            };
+            request.open('GET', url, true);
+            request.send('');
+        }
+
+        function get(id) {
+            return document.getElementById(id);
+        }
+
+        getJSON('https://api.github.com/repos/handsontable/handsontable');
+
+    </script>
+
+</body>
+
+</html> 
