@@ -1,72 +1,39 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>My Resume</title>
-		<style>
-		    div {
-			    border-radius: 5px;
-			    color: #ffffff;
-			}
-
-			#header {
-			    background-color: rgba(0, 0, 0, .8);
-			    width: 100%;
-			    height: 50px;
-			    position: fixed;
-			    z-index: 1;
-			    padding: 0 10px 20px;
-			}
-
-			.left {
-			    background-color: red;
-			    width: 10%;
-			    height: 250px;
-			    float: left;
-			    position: relative;
-			    margin-top: 80px;
-			}
-
-			.right {
-			    background-color: green;
-			    width: 85%;
-			    height: 250px;
-			    float: right;
-			    position: relative;
-			    margin-top: 80px;
-			    padding-left: 10px;
-			}
-
-			#footer {
-			    background-color: yellow;
-			    width: 100%;
-			    height: 50px;
-			    clear: both;
-			    color: red;
-			    padding: 3px 0 30px 5px;
-			}
-		</style>
+		<link type="text/css" rel="stylesheet" href="style.css">
 	</head>
 	<body>
 	    <div id="header">
-	        <h2>Piotr Nowak</h2>
+	        <h1>Piotr Nowak</h1>
+	        <p class="adress">e-mail: piotr.nowak.25.02.1978@gmail.com</p>
 	    </div>
 	    <div class="left"></div>
 	    <div class="right">
-	        <h3>Doświadczenie zawodowe</h3>
+	        <h2>Doświadczenie zawodowe</h2>
 	        <ul>
 	            <li>GetResponse (junior Front-end Developer)</li>
-	            <li>SENDINGO - Grupa Divante (Webmaster)
-</li>
+	            <li>SENDINGO - Grupa Divante (Webmaster)</li>
                 <li>ENGINE agencja interaktywna (junior Web Developer)</li>
-                <li>LINGAPP Sp. z o. o. (junior project manager)
-</li>
-                <li>GRUPA ONET.PL S.A.  (specjalista ds. obsługi reklamowej)
-</li>
+                <li>LINGAPP Sp. z o. o. (junior project manager)</li>
+                <li>GRUPA ONET.PL S.A.  (specjalista ds. obsługi reklamowej)</li>
 	        </ul>
+	        <h3>Skills</h3>
+			<p>Languages: JavaScript, HTML</p>
+			<p>Frameworks: AngularJS, JQuery, Meteor</p>
+			<h4>Education</h4>
+			<ol>
+				<li>Liceum Ogólnokształcące im. B. Chrobrego w Leżajsku</li>
+				<li>Uniwersytet Rzeszowski (kierunek: Filozofia); tytuł: licencjat</li>
+				<li>UMCS w Lublinie (kierunek: Filozofia); tytuł: magister</li>
+			</ol>
 	    </div>
-	    <div id="footer">
-	        <p>Zaintersowania: kino i poezja, snooker i siatkówka (biernie), pływanie (aktywnie)
-</p>
+
+	    <div id="footer" class="clearfix">
+	    	<h5>Zaintersowania:</h5>
+	        <p>kino i poezja, snooker i siatkówka (biernie), pływanie (aktywnie)</p>
 	    </div>
 	</body>
 </html>

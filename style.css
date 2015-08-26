@@ -1,0 +1,34 @@
+.bordered {
+  border: 2px dashed #6c94be;
+}
+div {
+  padding: 10px;
+  margin: 20px;
+  border: 2px dashed #6c94be;
+}
+#header {
+  color: #5b83ad;
+  position: fixed;
+}
+#header .adress {
+  color: #e81809;
+}
+#footer {
+  color: #e81809;
+  background-color: #306819;
+}
+.left {
+  float: left;
+  position: relative;
+  margin-top: 200px;
+  height: 500px;
+}
+.right {
+  float: right;
+  position: relative;
+  margin-top: 200px;
+  height: 500px;
+}
+.clearfix {
+  clear: both;
+}

@@ -1,0 +1,46 @@
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+@red: #e81809;
+@dark-green: #306819;
+@base: 10px;
+
+.bordered {
+	border: @base / 5 dashed @light-blue;
+}
+
+div {
+	padding: @base;
+	margin: @base * 2;
+	.bordered;
+}
+
+#header {
+	color: @nice-blue;
+	position: fixed;
+	.adress {
+        color: @red;
+	}
+}
+
+#footer {
+    color: @red;
+	background-color: @dark-green;
+}
+
+.left {
+	float: left;
+	position: relative;
+	margin-top: @base * 20;
+	height: @base * 50;
+}
+
+.right {
+	float: right;
+	position: relative;
+	margin-top: @base * 20;
+	height: @base * 50;
+}
+
+.clearfix {
+    clear: both;
+}
