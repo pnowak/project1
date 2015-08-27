@@ -1,21 +1,49 @@
 @nice-blue: #5B83AD;
+@dark-blue: darken(@nice-blue, 20%);
 @light-blue: @nice-blue + #111;
 @red: #e81809;
-@dark-green: #306819;
+@dark-green: #306819 - #211;
 @base: 10px;
+@relaway: 'Raleway', sans-serif;;
+
+.generate-columns(4);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+	.column-@{i} {
+	    width: (@i * 100% / @n);
+	}
+	.generate-columns(@n, (@i + 1));
+}
+
+.generate-header(5);
+
+.generate-header(@n, @i: 1) when (@i =< @n) {
+	h@{i} {
+	    color: darken(hsl(40, 90%, 50%), 50% / @i);
+	    font-size: @base * (6 / @i);
+	}
+	.generate-header(@n, (@i + 1));
+}
+
+body {
+	font-family: @relaway;
+}
 
 .bordered {
 	border: @base / 5 dashed @light-blue;
 }
 
 div {
-	padding: @base;
+    padding: @base;
 	margin: @base * 2;
 	.bordered;
 }
 
-#header {
+p {
 	color: @nice-blue;
+}
+
+#header {
 	position: fixed;
 	.adress {
         color: @red;
@@ -23,24 +51,26 @@ div {
 }
 
 #footer {
-    color: @red;
 	background-color: @dark-green;
-}
-
-.left {
-	float: left;
-	position: relative;
-	margin-top: @base * 20;
-	height: @base * 50;
 }
 
 .right {
 	float: right;
 	position: relative;
 	margin-top: @base * 20;
-	height: @base * 50;
+	height: @base * 60;
 }
 
 .clearfix {
     clear: both;
+}
+
+ul {
+	color: mix(#ff0000, #0000ff, 50%);
+	line-height: @base * 3;
+} 
+
+ol {
+	color: multiply(#ff6600, #999999);
+	line-height: @base * 3;
 }
