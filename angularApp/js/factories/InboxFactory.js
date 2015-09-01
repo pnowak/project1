@@ -13,6 +13,5 @@ angular.module('EmailApp')
           console.log('There was an error!', data);
         });
     };
-    console.log(exports);
     return exports;
   });

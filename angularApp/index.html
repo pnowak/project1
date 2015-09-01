@@ -1,3 +1,4 @@
+<!--tutorial from https://www.thinkful.com/learn/angularjs-tutorial-build-a-gmail-clone/Introduction#Introduction -->
 <!doctype html>
 <html ng-app="EmailApp">
     <head>
@@ -6,14 +7,34 @@
 	    <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <main class="main" role="main">
-	        <div class="wrapper">
+        <div ng-controller="TestCtrl">
+	        <!-- JavaScript inside expression -->
+	        <h1>{{ [ firstName, lastName ].join(" ") }}</h1>
+	        <!-- currency filter applied to a multiplication of 2 numbers -->
+	        <div class="total-info">{{ cost * quantity | currency }}</div>
+	        <!-- Using a ternary expression inside the expression -->
+	        <div class="budget">{{ ( total > budget ) ? "Too Expensive" : "You can buy it!" }}</div>
+	    </div>
+
+	    <main class="main" role="main">
+            <div class="wrapper">
 	            <div ng-view></div>
 	        </div>
 	    </main>
 
 	    <script src="lib/angular-v1.2.22.js"></script>
 	    <script src="lib/angular-route-v1.2.22.js"></script>
+
+	    <script>
+	        function TestCtrl($scope) {
+		        $scope.firstName = "John";
+		        $scope.lastName = "Doe";
+		        $scope.cost = 1;
+		        $scope.quantity = 3;
+		        $scope.total = $scope.cost * $scope.quantity;
+		        $scope.budget = 4;
+     	    };
+	    </script>
 
 	    <script src="js/app.js"></script>
         <script src="js/controllers/inbox.js"></script>
