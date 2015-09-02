@@ -3,9 +3,7 @@
  */
 angular.module('EmailApp')
   .controller('InboxCtrl',
-    function InboxCtrl ( $scope, InboxFactory ) {
+    function InboxCtrl () {
       'use strict';
-      $scope.meta = {
-        title: "My Gmail"
-      };
+      this.title = "My Gmail";
     });

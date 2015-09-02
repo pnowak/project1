@@ -13,7 +13,6 @@ angular.module('EmailApp')
       controllerAs: 'inbox',
 
       controller: function (InboxFactory) {
-        
         this.messages = [];
 
         this.goToMessage = function (id) {
