@@ -2,29 +2,98 @@
 <html>
     <head>
 		<title>jquery - bootstrap</title>
-        <link rel='stylesheet' type='text/css' href='http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css'/>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
         <script>
             $(document).ready(function () {
-                $('#menu').accordion();
+                $('#button').click(function () {
+                    var toAdd = $('input[name=checkListItem]').val();
+                    $('.list').append('<div class="item">' + toAdd + '</div>');
+                });
+                $(document).on('click', '.item', function () {
+                    $(this).remove();
+                });
             });
         </script>
 	</head>
 	<body>
-        <div id="menu">
-            <h3>Section 1</h3>
-            <div>
-                <p>I'm the first section!</p>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="btn-group">
+                    <button class="btn btn-info">Action</button>
+                    <button class="btn dropdown-toggle btn-info" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else</a></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-success">Action</button>
+                    <button class="btn dropdown-toggle btn-success" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else</a></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-warning">Action</button>
+                    <button class="btn dropdown-toggle btn-warning" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else</a></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-danger">Action</button>
+                    <button class="btn dropdown-toggle btn-danger" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else</a></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-inverse">Action</button>
+                    <button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else</a></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
             </div>
-            <h3>Section 2</h3>
-            <div>
-                <p>I'm the second section!</p>
+            <h2 class="col-md-12">To Do</h2>
+            <div class="input-append">
+                <input type="text" class="span4" name="checkListItem"/>
+                <button id="button" class="btn btn-primary" type="button">Add!</button>
             </div>
-            <h3>Section 3</h3>
-            <div>
-                <p>I'm the third section!</p>
-            </div>
+            <div class="list"></div>
         </div>
+
 	</body>
 </html>
