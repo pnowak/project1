@@ -13,6 +13,7 @@
 	<link href="../bower_components/paper-input/paper-input.html" rel="import">
 	<link href="../bower_components/iron-icons/iron-icons.html" rel="import">
 	<link href="../bower_components/pubnub-element/pubnub-element.html" rel="import">
+	<link href="../bower_components/pubnub-polymer/pubnub-element.html" rel="import">
 
 </head>
 
@@ -143,8 +144,8 @@
 			</paper-header-panel>
 		</paper-drawer-panel> 
 		<core-pubnub 
-	        publish_key="pub-c-7fad26fe-6c38-4940-b9c3-fbd19a9633af" 
-	        subscribe_key="sub-c-30c17e1a-0007-11e5-a8ef-0619f8945a4f">
+	        publish_key="pub-c-cde37b0d-57d1-4f51-9523-ab1cb3cfcf62" 
+	        subscribe_key="sub-c-444fd748-56be-11e5-b316-0619f8945a4f">
 	        <core-pubnub-publish id="pub" channel="todo" message="Hello"> </core-pubnub-publish>
 	        <core-pubnub-subscribe id="sub" channel="todo" messages="{{messages}}" presence="{{present}}" on-callback="subscribeCallback"></core-pubnub-subscribe>   
         </core-pubnub> 
