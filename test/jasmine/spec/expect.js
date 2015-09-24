@@ -1,12 +1,5 @@
 describe('Cash register', function () {
-
-    function StaffMember(name, discountPercent){
-            this.name = name;
-            this.discountPercent = discountPercent;
-    }
-
-    var me = new StaffMember('Pio', 20);
-
+    
     var cashRegister = {
         total: 0,
         lastTransactionAmount: 0,
@@ -32,30 +25,48 @@ describe('Cash register', function () {
         }
     };
 
+    var me = new StaffMember('Pio', 20);
+
+    function StaffMember(name, discountPercent){
+        this.name = name;
+        this.discountPercent = discountPercent;
+    }
+
     it('is a object', function () {
-    	expect(cashRegister).not.toBe(null);
+        var o = typeof cashRegister;
+        expect(o).not.toBe(null);
     });
 
-    it('to include add method', function () {
+    it('with four method', function () {
+        var arr = ['add', 'scan', 'voidLastTransaction', 'applyStaffDiscount'];
+
+        expect(arr).toEqual(jasmine.arrayContaining(['add', 'scan', 'voidLastTransaction', 'applyStaffDiscount']));
+    });
+
+    it('include add method', function () {
         expect(cashRegister.add).toBeDefined();
     });
 
-    it('property - total - start with zero', function () {
-    	expect(cashRegister.total).toBeEqual(0);
+    it('property total start with zero', function () {
+        expect(cashRegister.total).toEqual(0);
     });
 
-    it('method - scan - always return true', function () {
-    	expect(cashRegister.scan).toByTruthy();
+    it('method scan always return true', function () {
+        expect(cashRegister.scan).toBeTruthy();
     });
 
-    describe('have StaffMember', function () {
+    describe('connected with StaffMember', function () {
 
-    	it('with a name', function () {
-    		expect(me.name).toBeDefined();
-    	});
+        it('which be a constructor', function () {
+            expect(me).toBeTruthy(me instanceof StaffMember);
+        })
 
-        it('with method discountPercent which always greater than zero', function () {
-        	expect(me.discountPercent).toBeGreaterThan(0);
+        it('which have a name', function () {
+            expect(me.name).toBeDefined();
+        });
+
+        it('which method discountPercent always greater than zero', function () {
+            expect(me.discountPercent).toBeGreaterThan(0);
         });
     });
 });
